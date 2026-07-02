@@ -3,10 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title></title>
+    <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link href="styles.css" rel="stylesheet" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>"
+    />
   </head>
   <body>
+    <div class="game" tabindex="-1" data-vimium-ignore>
+      <header class="game__header">
+        <h1 class="game__title">Rock Paper Scissors</h1>
+        <div class="mode" aria-label="Match mode">
+          <button class="mode__btn mode__btn--active" data-mode="0" aria-label="Unlimited">∞</button>
+          <button class="mode__btn" data-mode="3" aria-label="Best of 3">3</button>
+          <button class="mode__btn" data-mode="5" aria-label="Best of 5">5</button>
+        </div>
+      </header>
+
+      <section class="scoreboard" aria-label="Score">
+        <div class="scoreboard__side">
+          <span class="scoreboard__label">You</span>
+          <span class="scoreboard__score" id="human-score">0</span>
+        </div>
+        <span class="scoreboard__divider">:</span>
+        <div class="scoreboard__side">
+          <span class="scoreboard__label">Computer</span>
+          <span class="scoreboard__score" id="computer-score">0</span>
+        </div>
+      </section>
+
+      <section class="arena" aria-label="Current plays">
+        <div class="arena__slot" id="human-choice">
+          <span class="arena__emoji">🤚</span>
+          <span class="arena__label">Your pick</span>
+        </div>
+
+        <div class="arena__divider">
+          <span class="arena__vs">VS</span>
+        </div>
+
+        <div class="arena__slot" id="computer-choice">
+          <span class="arena__emoji">💻</span>
+          <span class="arena__label">Their pick</span>
+        </div>
+      </section>
+
+      <p class="round" id="round">Round 0</p>
+
+      <p class="result" id="result" aria-live="assertive">Choose your move</p>
+
+      <section class="moves" aria-label="Your move">
+        <button
+          class="moves__btn"
+          data-move="rock"
+          aria-label="Rock"
+        >
+          <span class="moves__emoji">🪨</span>
+          <span class="moves__text">Rock <span class="moves__key">· 1</span></span>
+        </button>
+        <button
+          class="moves__btn"
+          data-move="paper"
+          aria-label="Paper"
+        >
+          <span class="moves__emoji">📄</span>
+          <span class="moves__text">Paper <span class="moves__key">· 2</span></span>
+        </button>
+        <button
+          class="moves__btn"
+          data-move="scissors"
+          aria-label="Scissors"
+        >
+          <span class="moves__emoji">✂️</span>
+          <span class="moves__text">Scissors <span class="moves__key">· 3</span></span>
+        </button>
+      </section>
+
+      <button class="reset" id="reset">Play Again</button>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
